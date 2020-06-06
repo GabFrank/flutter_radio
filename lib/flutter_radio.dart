@@ -46,6 +46,9 @@ class FlutterRadio {
       }
       FlutterRadio._isPlaying = true;
 
+      print('--------------------result---------------------');
+      print(result);
+
       return result;
     } catch (err) {
       throw Exception(err);
