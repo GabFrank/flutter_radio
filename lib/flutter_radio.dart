@@ -31,7 +31,7 @@ class FlutterRadio {
     }
   }
 
-  static Future<void> play({@required String url}) async {
+  static Future<bool> play({@required String url}) async {
     try {
       String result =
           await _channel.invokeMethod('play', <String, dynamic>{
@@ -46,10 +46,7 @@ class FlutterRadio {
       }
       FlutterRadio._isPlaying = true;
 
-      print('--------------------result---------------------');
-      print(result);
-
-      return result;
+      return true;
     } catch (err) {
       throw Exception(err);
     }
@@ -92,8 +89,6 @@ class FlutterRadio {
         case "updateProgress":
           Map<String, dynamic> result = jsonDecode(call.arguments);
           _playerController.add(new PlayStatus.fromJSON(result));
-          print('---------------------Printando result---------------------');
-          print(result);
           break;
         default:
           throw new ArgumentError('Unknown method ${call.method}');
