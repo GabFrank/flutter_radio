@@ -89,6 +89,8 @@ class FlutterRadio {
         case "updateProgress":
           Map<String, dynamic> result = jsonDecode(call.arguments);
           _playerController.add(new PlayStatus.fromJSON(result));
+          print('---------------------Printando result---------------------');
+          print(result);
           break;
         default:
           throw new ArgumentError('Unknown method ${call.method}');
