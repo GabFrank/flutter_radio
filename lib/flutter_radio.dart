@@ -48,7 +48,7 @@ class FlutterRadio {
 
       return true;
     } catch (err) {
-      throw Exception(err);
+      return false;
     }
   }
 
